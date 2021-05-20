@@ -12,8 +12,10 @@ import {
   PlayIcon,
   SearchIcon,
   ChatAlt2Icon,
+  LogoutIcon,
 } from "@heroicons/react/outline";
 import HeaderIcon from "./HeaderIcon";
+import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 
 function Header() {
   return (
@@ -24,7 +26,7 @@ function Header() {
         <div className="flex ml-2 items-center rounded-full bg-gray-100 p-2">
           <SearchIcon className="h-6 text-gray-600" />
           <input
-            className="flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink "
+            className=" hidden md:inline-flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink "
             type="text"
             placeholder="Search"
           />
@@ -42,6 +44,10 @@ function Header() {
       </div>
 
       {/* Right */}
+      <div className="flex items-center sm:space-x-2 justify-end">
+        <p className="font-semibold pr-3">Test User</p>
+        <ExitToAppRoundedIcon fontSize="large" className="icon" />
+      </div>
     </div>
   );
 }
