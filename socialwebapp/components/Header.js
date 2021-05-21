@@ -16,8 +16,10 @@ import {
 } from "@heroicons/react/outline";
 import HeaderIcon from "./HeaderIcon";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
+import { session, useSession, signOut } from "next-auth/client";
 
 function Header() {
+  const [session] = useSession();
   return (
     <div className="sticky top- z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
       {/* Left */}
@@ -45,8 +47,19 @@ function Header() {
 
       {/* Right */}
       <div className="flex items-center sm:space-x-2 justify-end">
-        <p className="font-semibold pr-3">Test User</p>
-        <ExitToAppRoundedIcon fontSize="large" className="icon" />
+        <Image
+          className="rounded-full cursor-pointer"
+          src={session.user.image}
+          width="40"
+          height="40"
+          layout="fixed"
+        />
+        <p className="font-semibold pr-3">{session.user.name}</p>
+        <ExitToAppRoundedIcon
+          onClick={signOut}
+          fontSize="large"
+          className="icon"
+        />
       </div>
     </div>
   );
