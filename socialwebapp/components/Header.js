@@ -38,7 +38,7 @@ function Header() {
       {/* Center */}
 
       <div className="flex justify-center flex-grow ">
-        <div className="flex space-x-6 md:space-x-10">
+        <div className="flex space-x-6 lg:space-x-10">
           <HeaderIcon active Icon={HomeIcon} />
           <HeaderIcon Icon={ChatAlt2Icon} />
           <HeaderIcon Icon={UserGroupIcon} />
@@ -48,7 +48,7 @@ function Header() {
       {/* Right */}
       <div className="flex items-center sm:space-x-2 justify-end">
         <Image
-          className="rounded-full cursor-pointer"
+          className="rounded-full"
           src={session.user.image}
           width="40"
           height="40"

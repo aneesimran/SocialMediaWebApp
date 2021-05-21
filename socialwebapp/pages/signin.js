@@ -14,7 +14,7 @@ export default function SignIn({ providers, session }) {
   return (
     <>
       {Object.values(providers).map((provider) => (
-        <div key={provider.name} className="grid place-items-center mt-60">
+        <div key={provider.name} className="grid place-items-center mt-80">
           <Image
             src="/network.png"
             height={300}
@@ -24,7 +24,7 @@ export default function SignIn({ providers, session }) {
           <h1
             onClick={() => signIn(provider.id)}
             className="p-5 bg-purple-500 rounded-full text-white 
-      text-center mt-10 cursor-pointer"
+      text-center mt-20 cursor-pointer"
           >
             Sign in with {provider.name}
           </h1>
