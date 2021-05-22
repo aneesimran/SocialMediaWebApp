@@ -28,7 +28,7 @@ function Header() {
         <div className="flex ml-2 items-center rounded-full bg-gray-100 p-2">
           <SearchIcon className="h-6 text-gray-600" />
           <input
-            className=" hidden md:inline-flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink "
+            className="hidden sm:inline-flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink "
             type="text"
             placeholder="Search"
           />
@@ -37,24 +37,26 @@ function Header() {
 
       {/* Center */}
 
-      <div className="flex justify-center flex-grow ">
-        <div className="flex space-x-6 lg:space-x-10">
+      <div className=" hidden md:flex justify-center flex-grow ">
+        <div className="flex space-x-10 lg:space-x-20 -mr-40">
           <HeaderIcon active Icon={HomeIcon} />
           <HeaderIcon Icon={ChatAlt2Icon} />
-          <HeaderIcon Icon={UserGroupIcon} />
+          {/*<HeaderIcon Icon={UserGroupIcon} />*/}
         </div>
       </div>
 
       {/* Right */}
-      <div className="flex items-center sm:space-x-2 justify-end">
-        <Image
-          className="rounded-full"
-          src={session.user.image}
-          width="40"
-          height="40"
-          layout="fixed"
-        />
+      <div className="flex items-center flex-grow sm:space-x-2 justify-end">
         <p className="font-semibold pr-3">{session.user.name}</p>
+        <div className="pr-2 pt-1.5">
+          <Image
+            className="rounded-full"
+            src={session.user.image}
+            width="35"
+            height="35"
+            layout="fixed"
+          />
+        </div>
         <ExitToAppRoundedIcon
           onClick={signOut}
           fontSize="large"
