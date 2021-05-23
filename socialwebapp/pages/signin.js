@@ -14,20 +14,22 @@ export default function SignIn({ providers, session }) {
   return (
     <>
       {Object.values(providers).map((provider) => (
-        <div key={provider.name} className="grid place-items-center mt-80">
-          <Image
-            src="/network.png"
-            height={300}
-            width={300}
-            objectFit="contain"
-          />
-          <h1
-            onClick={() => signIn(provider.id)}
-            className="p-5 bg-purple-500 rounded-full text-white 
-      text-center mt-20 cursor-pointer"
-          >
-            Sign in with {provider.name}
-          </h1>
+        <div key={provider.name} className="grid place-items-center ">
+          <div className="bg-gray-100 border rounded-3xl p-10 mt-40 ml-12 mr-12 shadow-lg">
+            <Image
+              src="/network.png"
+              height={300}
+              width={300}
+              objectFit="contain"
+            />
+            <h1
+              onClick={() => signIn(provider.id)}
+              className="p-5 bg-green-600 rounded-full text-white 
+      text-center mt-14 cursor-pointer shadow-lg border-green-400 hover:bg-green-500"
+            >
+              Sign in with {provider.name}
+            </h1>
+          </div>
         </div>
       ))}
     </>
