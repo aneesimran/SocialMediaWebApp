@@ -23,18 +23,18 @@ function InputBox() {
           <input
             className="rounded-full h-12 bg-gray-100 flex-grow px-5 focus:outline-none"
             type="text"
-            placeholder={`What's on your mind, soemhiddi csjssodcdedjcjcj?`}
+            placeholder={`What's on your mind, ${session.user.name}?`}
           />
           <button hidden type="submit" onClick={sendPost}></button>
         </form>
       </div>
       <div className="flex justify-evenly p-3 border-t">
         <div className="inputIcon">
-          <ThumbUpIcon className="h-7 text-blue-200" />
+          <ThumbUpIcon className="h-7 text-blue-200 -mt-1" />
           <p className="text-xs sm:text-sm xl:text-base">Like</p>
         </div>
         <div className="inputIcon">
-          <CameraIcon className="h-7 text-green-500" />
+          <CameraIcon className="h-7 text-green-500 -mt-1" />
           <p className="text-xs sm:text-sm xl:text-base">Photo</p>
         </div>
       </div>
