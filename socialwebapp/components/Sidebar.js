@@ -1,6 +1,7 @@
 import { useSession } from "next-auth/client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import SidebarIcon from "./SidebarIcons";
 import { HomeIcon } from "@heroicons/react/solid";
 import { ChatAlt2Icon, UserCircleIcon } from "@heroicons/react/outline";
@@ -11,7 +12,11 @@ function Sidebar() {
     <div>
       <div className="border bg-white w-10 pt-60 shadow-md h-screen sticky top-0 md:hidden">
         <SidebarIcon active Icon={HomeIcon} />
-        <SidebarIcon Icon={ChatAlt2Icon} />
+        <Link href="/chat">
+          <a>
+            <SidebarIcon Icon={ChatAlt2Icon} />
+          </a>
+        </Link>
         <SidebarIcon Icon={UserCircleIcon} />
       </div>
       <div

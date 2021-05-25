@@ -72,7 +72,7 @@ function InputBox() {
   };
 
   return (
-    <div className="mt-2 ml-2 mr-2 rounded-xl shadow-md font-medium text-sm md:text-base text-gray-500 bg-white md:mt-6 md:ml-2 md:mr-5">
+    <div className="mt-2 ml-2 mr-2 rounded-xl shadow-md font-medium text-sm md:text-base text-gray-500 bg-white md:mt-6 md:ml-2 md:mr-5 2xl:ml-60 2xl:mr-64">
       <div className="flex space-x-4 p-6 items-center">
         <Image
           className="rounded-full"

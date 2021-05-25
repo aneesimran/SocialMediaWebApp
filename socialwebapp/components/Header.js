@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   BellIcon,
   ChevronDownIcon,
@@ -12,6 +13,7 @@ import {
   PlayIcon,
   SearchIcon,
   ChatAlt2Icon,
+  UserCircleIcon,
   LogoutIcon,
 } from "@heroicons/react/outline";
 import HeaderIcon from "./HeaderIcon";
@@ -37,17 +39,22 @@ function Header() {
 
       {/* Center */}
 
-      <div className=" hidden md:flex justify-center flex-grow ">
+      <div className=" hidden md:flex justify-center flex-grow xl:pl-16 2xl:pl-60">
         <div className="flex space-x-10 lg:space-x-20 -mr-40">
           <HeaderIcon active Icon={HomeIcon} />
-          <HeaderIcon Icon={ChatAlt2Icon} />
+          <Link href="/chat">
+            <a>
+              <HeaderIcon Icon={ChatAlt2Icon} />
+            </a>
+          </Link>
+          <HeaderIcon Icon={UserCircleIcon} />
           {/*<HeaderIcon Icon={UserGroupIcon} />*/}
         </div>
       </div>
 
       {/* Right */}
       <div className="flex items-center flex-grow sm:space-x-2 justify-end">
-        <p className="font-semibold pr-3">{session.user.name}</p>
+        <p className="font-semibold pr-3 md:hidden">{session.user.name}</p>
         <div className="pr-2 pt-1.5">
           <Image
             className="rounded-full"
