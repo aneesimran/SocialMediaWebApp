@@ -21,7 +21,7 @@ import { session, useSession, signOut } from "next-auth/client";
 function Header() {
   const [session] = useSession();
   return (
-    <div className="sticky top- z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
+    <div className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
       {/* Left */}
       <div className="flex items-center">
         <Image src="/network.png" width={40} height={40} layout="fixed" />

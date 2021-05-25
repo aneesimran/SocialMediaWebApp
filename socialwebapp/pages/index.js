@@ -9,7 +9,7 @@ import Widgets from "../components/Widgets";
 export default function Home({ session }) {
   if (!session) return <Login />;
   return (
-    <div className="h-screen bg-gray-100 overflow-hidden">
+    <div className="h-screen bg-gray-100 overflow-scroll">
       <Head>
         <title>Social Media</title>
         <meta name="description" content="Created in Next.JS" />

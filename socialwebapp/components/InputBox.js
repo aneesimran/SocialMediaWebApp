@@ -91,26 +91,22 @@ function InputBox() {
           <button hidden type="submit" onClick={sendPost}></button>
         </form>
         {/* if there is an image then render out some UI elements */}
-        {imageToPost && (
-          <div
-            onClick={removeImage}
-            className="flex flex-col filter hover:brightness-110 
-            transition duration-150 transform hover:scale-105 cursor-pointer"
-          >
-            <img
-              className="h-8 sm:h-10 object-contain"
-              src={imageToPost}
-              alt=""
-            />
-            <p className="text-sm text-red-500 text-center">X</p>
-          </div>
-        )}
       </div>
-      <div className="flex justify-evenly p-3 border-t">
-        <div className="inputIcon">
-          <ThumbUpIcon className="h-7 text-blue-200 -mt-1" />
-          <p className="text-xs sm:text-sm xl:text-base">Like</p>
+      {imageToPost && (
+        <div
+          onClick={removeImage}
+          className="flex flex-col filter hover:brightness-110 
+            transition duration-150 transform hover:scale-105 cursor-pointer"
+        >
+          <img
+            className="h-32 sm:h-44 object-contain"
+            src={imageToPost}
+            alt=""
+          />
+          <p className="text-sm text-red-500 text-center">X</p>
         </div>
+      )}
+      <div className="flex justify-evenly p-3 border-t">
         <div
           onClick={() => filepickerRef.current.click()}
           className="inputIcon"
