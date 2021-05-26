@@ -14,10 +14,10 @@ export default function Home({ session, posts }) {
       <Head>
         <title>Social Media</title>
         <meta name="description" content="Created in Next.JS" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/network.png" />
       </Head>
 
-      <Header />
+      <Header currentPage="home" />
 
       <main className="flex">
         {/* sidebar */}

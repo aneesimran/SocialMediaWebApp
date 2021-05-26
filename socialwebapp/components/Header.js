@@ -20,7 +20,7 @@ import HeaderIcon from "./HeaderIcon";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 import { session, useSession, signOut } from "next-auth/client";
 
-function Header() {
+function Header({ currentPage }) {
   const [session] = useSession();
   return (
     <div className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
@@ -40,16 +40,71 @@ function Header() {
       {/* Center */}
 
       <div className=" hidden md:flex justify-center flex-grow xl:pl-16 2xl:pl-60">
-        <div className="flex space-x-10 lg:space-x-20 -mr-40">
-          <HeaderIcon active Icon={HomeIcon} />
-          <Link href="/chat">
-            <a>
-              <HeaderIcon Icon={ChatAlt2Icon} />
-            </a>
-          </Link>
-          <HeaderIcon Icon={UserCircleIcon} />
-          {/*<HeaderIcon Icon={UserGroupIcon} />*/}
-        </div>
+        {(() => {
+          if (currentPage == "home") {
+            return (
+              <div className="flex space-x-10 lg:space-x-20 -mr-40">
+                <Link href="/">
+                  <a>
+                    <HeaderIcon active Icon={HomeIcon} />
+                  </a>
+                </Link>
+                <Link href="/chat">
+                  <a>
+                    <HeaderIcon Icon={ChatAlt2Icon} />
+                  </a>
+                </Link>
+                <Link href="/">
+                  <a>
+                    <HeaderIcon Icon={UserCircleIcon} />
+                  </a>
+                </Link>
+              </div>
+            );
+          } else if (currentPage == "chat") {
+            return (
+              <div className="flex space-x-10 lg:space-x-20 -mr-40">
+                <Link href="/">
+                  <a>
+                    <HeaderIcon Icon={HomeIcon} />
+                  </a>
+                </Link>
+                <Link href="/chat">
+                  <a>
+                    <HeaderIcon active Icon={ChatAlt2Icon} />
+                  </a>
+                </Link>
+                <Link href="/">
+                  <a>
+                    <HeaderIcon Icon={UserCircleIcon} />
+                  </a>
+                </Link>
+              </div>
+            );
+          } else {
+            return (
+              <div className="flex space-x-10 lg:space-x-20 -mr-40">
+                <Link href="/">
+                  <a>
+                    <HeaderIcon Icon={HomeIcon} />
+                  </a>
+                </Link>
+                <Link href="/chat">
+                  <a>
+                    <HeaderIcon Icon={ChatAlt2Icon} />
+                  </a>
+                </Link>
+                <Link href="/">
+                  <a>
+                    <HeaderIcon active Icon={UserCircleIcon} />
+                  </a>
+                </Link>
+              </div>
+            );
+          }
+        })()}
+
+        {/*<HeaderIcon Icon={UserGroupIcon} />*/}
       </div>
 
       {/* Right */}
@@ -65,7 +120,7 @@ function Header() {
           />
         </div>
         <ExitToAppRoundedIcon
-          onClick={signOut}
+          onClick={() => signOut({ callbackUrl: "http://localhost:3000/" })}
           fontSize="large"
           className="icon"
         />
