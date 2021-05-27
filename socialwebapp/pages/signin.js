@@ -24,7 +24,9 @@ export default function SignIn({ providers, session }) {
             />
             <h1
               onClick={() =>
-                signIn(provider.id, { callbackUrl: "http://localhost:3000/" })
+                signIn(provider.id, {
+                  callbackUrl: "http://localhost:3000/loading",
+                })
               }
               className="p-5 bg-green-600 rounded-full text-white 
       text-center mt-14 cursor-pointer shadow-lg border-green-400 hover:bg-green-500"

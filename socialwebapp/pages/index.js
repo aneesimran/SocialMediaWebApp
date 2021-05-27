@@ -6,9 +6,24 @@ import Sidebar from "../components/Sidebar";
 import Feed from "../components/Feed";
 import Widgets from "../components/Widgets";
 import { db } from "../firebase";
+import { useEffect } from "react";
+import firebase from "firebase";
 
 export default function Home({ session, posts }) {
   if (!session) return <Login />;
+  useEffect(() => {
+    if (session) {
+      db.collection("users").doc(session.user.email).set(
+        {
+          email: session.user.email,
+          name: session.user.name,
+          lastSeen: firebase.firestore.FieldValue.serverTimestamp(),
+          userPhoto: session.user.image,
+        },
+        { merge: true }
+      );
+    }
+  }, [session]);
   return (
     <div className="h-screen bg-gray-100 overflow-scroll">
       <Head>

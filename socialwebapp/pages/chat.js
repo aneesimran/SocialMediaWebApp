@@ -1,6 +1,8 @@
 import Header from "../components/Header";
 import Sidebar from "../components/ChatSidebar";
 import { getSession } from "next-auth/client";
+import { useEffect } from "react";
+import { db } from "../firebase";
 
 export default function Chat() {
   return (
