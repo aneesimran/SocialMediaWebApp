@@ -24,6 +24,7 @@ export default function Loading({ providers, session }) {
           src="/network.png"
           height={300}
           width={300}
+          loading="eager"
           objectFit="contain"
         />
         <div className="grid place-items-center mt-8">

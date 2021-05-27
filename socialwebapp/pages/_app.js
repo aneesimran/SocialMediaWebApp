@@ -1,7 +1,10 @@
 import "../styles/globals.css";
-import { Provider } from "next-auth/client";
+import { Provider, useSession } from "next-auth/client";
+import Loading from "../components/LoadingScreen";
 
 function MyApp({ Component, pageProps }) {
+  const [session, loading] = useSession();
+  if (loading) return <Loading />;
   return (
     <Provider session={pageProps.session}>
       <Component {...pageProps} />

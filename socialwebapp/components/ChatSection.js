@@ -32,7 +32,7 @@ function ChatSection({ id, users }) {
         </>
       ) : (
         <>
-          <UserAvatar>{recipientEmail[0]}</UserAvatar>
+          <UserAvatar>{recipientEmail[0].toUpperCase()}</UserAvatar>
           <p>{recipientEmail}</p>
         </>
       )}
@@ -46,7 +46,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 15px;
+  padding: 10px;
   border-bottom: 1px solid whitesmoke;
 
   > p {
