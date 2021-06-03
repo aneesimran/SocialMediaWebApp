@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { Avatar } from "@material-ui/core";
 import { useCollection } from "react-firebase-hooks/firestore";
@@ -12,6 +12,7 @@ import TimeAgo from "timeago-react";
 
 function ChatScreen({ chat, messages }) {
   const [session] = useSession();
+  const endOfMessageRef = useRef(null);
   const router = useRouter();
   const [input, setInput] = useState("");
   const [messagesSnapshot] = useCollection(
@@ -46,6 +47,13 @@ function ChatScreen({ chat, messages }) {
       .where("email", "==", getRecipientEmail(chat.users, session.user))
   );
 
+  const ScrolltoBottom = () => {
+    endOfMessageRef.current.scrollIntoView({
+      behaviour: "smooth",
+      block: "start",
+    });
+  };
+
   const sendMessage = (e) => {
     e.preventDefault();
     // update the last seen
@@ -64,6 +72,7 @@ function ChatScreen({ chat, messages }) {
     });
 
     setInput("");
+    ScrolltoBottom();
   };
 
   const recipient = recipientSnapshot?.docs?.[0]?.data();
@@ -97,7 +106,7 @@ function ChatScreen({ chat, messages }) {
       </Header>
       <MessageContainer>
         {showMessages()}
-        <EndOfMessage />
+        <EndOfMessage ref={endOfMessageRef} />
       </MessageContainer>
       <InputContainer>
         <Input value={input} onChange={(e) => setInput(e.target.value)} />
@@ -118,7 +127,7 @@ const Container = styled.div`
 const MessageContainer = styled.div`
   padding-top: 100px !important;
   padding: 30px;
-  background-color: #e5ded8;
+  background-color: whitesmoke;
   min-height: 89vh;
 `;
 
@@ -146,7 +155,9 @@ const InputContainer = styled.form`
   z-index: 100;
 `;
 
-const EndOfMessage = styled.div``;
+const EndOfMessage = styled.div`
+  margin-bottom: 50px;
+`;
 
 const Header = styled.div`
   position: fixed;
