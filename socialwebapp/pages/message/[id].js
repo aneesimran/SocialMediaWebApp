@@ -35,7 +35,7 @@ const MessagingContainer = styled.div`
 const ChatContainer = styled.div`
   flex: 1;
   overflow: scroll;
-  height: 100vh;
+  height: 93vh;
 
   ::-webkit-scrollbar {
     display: none;

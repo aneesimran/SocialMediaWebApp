@@ -49,7 +49,20 @@ function ChatSidebar() {
 
 export default ChatSidebar;
 
-const Container = styled.div``;
+const Container = styled.div`
+  flex: 0.3;
+  max-width: 260px;
+  min-width: 260px;
+  height: 94vh;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  --ms-overflow-style: none;
+  scrollbar-width: none;
+`;
 
 const SidebarButton = styled(Button)`
   width: 100%;
