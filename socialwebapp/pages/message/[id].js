@@ -6,6 +6,7 @@ import ChatSidebar from "../../components/ChatSidebar";
 import Header from "../../components/Header";
 import ChatScreen from "../../components/ChatScreen";
 import { db } from "../../firebase";
+import NavSidebar from "../../components/Sidebar";
 
 function Message({ chat, messages }) {
   return (
@@ -15,7 +16,9 @@ function Message({ chat, messages }) {
       </Head>
       <Header currentPage="chat" />
       <MessagingContainer>
-        <ChatSidebar />
+        <ChatSidebarResponsive>
+          <ChatSidebar />
+        </ChatSidebarResponsive>
         <ChatContainer>
           <ChatScreen chat={chat} messages={messages} />
         </ChatContainer>
@@ -28,6 +31,12 @@ export default Message;
 
 const Container = styled.div``;
 
+const ChatSidebarResponsive = styled.div`
+  @media (max-width: 767px) {
+    display: none;
+  }
+`;
+
 const MessagingContainer = styled.div`
   display: flex;
 `;
@@ -35,7 +44,11 @@ const MessagingContainer = styled.div`
 const ChatContainer = styled.div`
   flex: 1;
   overflow: scroll;
-  height: 93vh;
+  height: 94vh;
+
+  @media (max-width: 767px) {
+    height: 92vh;
+  }
 
   ::-webkit-scrollbar {
     display: none;

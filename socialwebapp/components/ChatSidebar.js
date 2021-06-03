@@ -63,6 +63,11 @@ const Container = styled.div`
 
   --ms-overflow-style: none;
   scrollbar-width: none;
+
+  @media (max-width: 767px) {
+    min-width: 92vw;
+    height: 100vh;
+  }
 `;
 
 const SidebarButton = styled(Button)`

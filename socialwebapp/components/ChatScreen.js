@@ -1,14 +1,16 @@
 import { useSession } from "next-auth/client";
 import { useRouter } from "next/router";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { Avatar } from "@material-ui/core";
+import { Avatar, Button } from "@material-ui/core";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../firebase";
 import firebase from "firebase";
 import Message from "./Message";
 import getRecipientEmail from "../utils/getRecipientEmail";
 import TimeAgo from "timeago-react";
+import { ChevronLeftIcon } from "@heroicons/react/solid";
+import Link from "next/link";
 
 function ChatScreen({ chat, messages }) {
   const [session] = useSession();
@@ -54,6 +56,10 @@ function ChatScreen({ chat, messages }) {
     });
   };
 
+  useEffect(() => {
+    ScrolltoBottom();
+  });
+
   const sendMessage = (e) => {
     e.preventDefault();
     // update the last seen
@@ -82,6 +88,12 @@ function ChatScreen({ chat, messages }) {
   return (
     <Container>
       <Header>
+        <Link href="/chat">
+          <BackIcon>
+            <ChevronLeftIcon fontSize="large" className="icon" />
+          </BackIcon>
+        </Link>
+
         {recipient ? (
           <Avatar src={recipient?.userPhoto} />
         ) : (
@@ -122,6 +134,13 @@ export default ChatScreen;
 
 const Container = styled.div`
   flex: 0.7;
+`;
+
+const BackIcon = styled.div`
+  @media (min-width: 767px) {
+    display: none;
+  }
+  padding-right: 10px;
 `;
 
 const MessageContainer = styled.div`
@@ -171,6 +190,10 @@ const Header = styled.div`
   height: 80px;
   align-items: center;
   border-bottom: 1px solid whitesmoke;
+  @media (max-width: 767px) {
+    min-width: 100vh;
+    left: 0;
+  }
 `;
 
 const HeaderInformation = styled.div`
