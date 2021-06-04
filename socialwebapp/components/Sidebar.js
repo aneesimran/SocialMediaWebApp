@@ -6,19 +6,74 @@ import SidebarIcon from "./SidebarIcons";
 import { HomeIcon } from "@heroicons/react/solid";
 import { ChatAlt2Icon, UserCircleIcon } from "@heroicons/react/outline";
 
-function Sidebar() {
+function Sidebar({ currentPage }) {
   const [session, loading] = useSession();
   return (
     <div>
-      <div className="border bg-white w-10 pt-60 shadow-md h-screen sticky top-0 md:hidden">
-        <SidebarIcon active Icon={HomeIcon} />
-        <Link href="/chat">
-          <a>
-            <SidebarIcon Icon={ChatAlt2Icon} />
-          </a>
-        </Link>
-        <SidebarIcon Icon={UserCircleIcon} />
-      </div>
+      {(() => {
+        if (currentPage == "home") {
+          return (
+            <div className="border bg-white w-10 pt-60 shadow-md h-screen sticky top-0 md:hidden">
+              <Link href="/">
+                <a>
+                  <SidebarIcon active Icon={HomeIcon} />
+                </a>
+              </Link>
+              <Link href="/chat">
+                <a>
+                  <SidebarIcon Icon={ChatAlt2Icon} />
+                </a>
+              </Link>
+              <Link href="/">
+                <a>
+                  <SidebarIcon Icon={UserCircleIcon} />
+                </a>
+              </Link>
+            </div>
+          );
+        } else if (currentPage == "chat") {
+          return (
+            <div className="border bg-white w-10 pt-60 shadow-md h-screen sticky top-0 md:hidden">
+              <Link href="/">
+                <a>
+                  <SidebarIcon Icon={HomeIcon} />
+                </a>
+              </Link>
+              <Link href="/chat">
+                <a>
+                  <SidebarIcon active Icon={ChatAlt2Icon} />
+                </a>
+              </Link>
+              <Link href="/">
+                <a>
+                  <SidebarIcon Icon={UserCircleIcon} />
+                </a>
+              </Link>
+            </div>
+          );
+        } else {
+          return (
+            <div className="border bg-white w-10 pt-60 shadow-md h-screen sticky top-0 md:hidden">
+              <Link href="/">
+                <a>
+                  <SidebarIcon Icon={HomeIcon} />
+                </a>
+              </Link>
+              <Link href="/chat">
+                <a>
+                  <SidebarIcon Icon={ChatAlt2Icon} />
+                </a>
+              </Link>
+              <Link href="/">
+                <a>
+                  <SidebarIcon active Icon={UserCircleIcon} />
+                </a>
+              </Link>
+            </div>
+          );
+        }
+      })()}
+
       <div
         className=" hidden md:flex flex-col items-center w-11/12 ml-3 -mr-80 mt-5 top-24 sticky 
      text-center  "

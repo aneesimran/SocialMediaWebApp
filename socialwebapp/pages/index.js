@@ -36,7 +36,7 @@ export default function Home({ session, posts }) {
 
       <main className="flex">
         {/* sidebar */}
-        <Sidebar />
+        <Sidebar currentPage="home" />
         {/* feed */}
         <Feed posts={posts} />
         {/* widgets */}

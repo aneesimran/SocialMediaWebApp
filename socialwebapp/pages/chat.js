@@ -11,7 +11,7 @@ export default function Chat() {
     <Container>
       <Header currentPage="chat" />
       <NavSidebarContainer>
-        <NavSidebar />
+        <NavSidebar currentPage="chat" />
         <Sidebar />
       </NavSidebarContainer>
       <LargeScreens>
