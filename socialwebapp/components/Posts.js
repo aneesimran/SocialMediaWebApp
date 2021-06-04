@@ -9,6 +9,7 @@ function Posts({ posts }) {
   const [realtimePosts, loading, error] = useCollection(
     db.collection("posts").orderBy("timestamp", "desc")
   );
+
   return (
     <div>
       <FlipMove enterAnimation="fade" duration="600" delay="300">

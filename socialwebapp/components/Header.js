@@ -19,9 +19,12 @@ import {
 import HeaderIcon from "./HeaderIcon";
 import ExitToAppRoundedIcon from "@material-ui/icons/ExitToAppRounded";
 import { session, useSession, signOut } from "next-auth/client";
+import { db } from "../firebase";
+import { useCollection } from "react-firebase-hooks/firestore";
 
 function Header({ currentPage }) {
   const [session] = useSession();
+
   return (
     <div className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
       {/* Left */}
@@ -54,7 +57,7 @@ function Header({ currentPage }) {
                     <HeaderIcon Icon={ChatAlt2Icon} />
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href="/profile">
                   <a>
                     <HeaderIcon Icon={UserCircleIcon} />
                   </a>
@@ -74,7 +77,7 @@ function Header({ currentPage }) {
                     <HeaderIcon active Icon={ChatAlt2Icon} />
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href="/profile">
                   <a>
                     <HeaderIcon Icon={UserCircleIcon} />
                   </a>
@@ -94,7 +97,7 @@ function Header({ currentPage }) {
                     <HeaderIcon Icon={ChatAlt2Icon} />
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href="/profile">
                   <a>
                     <HeaderIcon active Icon={UserCircleIcon} />
                   </a>
