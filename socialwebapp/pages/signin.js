@@ -26,7 +26,7 @@ export default function SignIn({ providers, session }) {
               onClick={() =>
                 signIn(provider.id, {
                   callbackUrl:
-                    "https://social-media-web-app-i9hatnx8o-aneesimran.vercel.app/loading",
+                    "https://social-media-web-app.vercel.app/loading",
                 })
               }
               className="p-5 bg-green-600 rounded-full text-white 
