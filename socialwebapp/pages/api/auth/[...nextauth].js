@@ -5,7 +5,7 @@ export default NextAuth({
   // Configure one or more authentication providers
   providers: [
     Providers.Google({
-      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientId: 680895175751-6t72ofpof6b7ddn463jkjrt4hi2dfttr.apps.googleusercontent.com,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     // ...add more providers here
