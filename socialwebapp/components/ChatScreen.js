@@ -95,7 +95,9 @@ function ChatScreen({ chat, messages }) {
         </Link>
 
         {recipient ? (
-          <Avatar src={recipient?.userPhoto} />
+          <Link href={"/profile/" + recipient.email}>
+            <Avatar className="cursor-pointer" src={recipient?.userPhoto} />
+          </Link>
         ) : (
           <Avatar>{recipientEmail[0].toUpperCase()}</Avatar>
         )}
