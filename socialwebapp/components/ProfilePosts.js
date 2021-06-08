@@ -1,13 +1,20 @@
+import { useSession } from "next-auth/client";
 import React from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "../firebase";
-import Post from "./Post";
-import { motion } from "framer-motion";
+import Post from "./ProfilePost";
 import FlipMove from "react-flip-move";
 
-function Posts({ posts }) {
+function ProfilePosts({ posts }) {
+  const [session] = useSession();
+
+  var urlSplit = window.location.pathname.split("/");
+
   const [realtimePosts, loading, error] = useCollection(
-    db.collection("posts").orderBy("timestamp", "desc")
+    db
+      .collection("posts")
+      .where("email", "==", urlSplit[2])
+      .orderBy("timestamp", "desc")
   );
 
   return (
@@ -20,7 +27,6 @@ function Posts({ posts }) {
                 name={post.data().name}
                 message={post.data().message}
                 timestamp={post.data().timestamp}
-                email={post.data().email}
                 image={post.data().image}
                 postImage={post.data().postImage}
               />
@@ -31,7 +37,6 @@ function Posts({ posts }) {
                 name={post.name}
                 message={post.message}
                 timestamp={post.timestamp}
-                email={post.email}
                 image={post.image}
                 postImage={post.postImage}
               />;
@@ -41,4 +46,4 @@ function Posts({ posts }) {
   );
 }
 
-export default Posts;
+export default ProfilePosts;

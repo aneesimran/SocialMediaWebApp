@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import Image from "next/image";
 import { ThumbUpIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 
 const Post = forwardRef(
   ({ name, message, email, postImage, image, timestamp }, ref) => {
@@ -8,13 +9,15 @@ const Post = forwardRef(
       <div ref={ref} className="flex flex-col">
         <div className="p-5 bg-white shadow-md mt-2 ml-2 mr-2 rounded-t-xl md:mt-2 md:ml-2 md:mr-5 2xl:ml-60 2xl:mr-64">
           <div className="flex items-center space-x-2">
-            <img
-              className="rounded-full"
-              src={image}
-              width={35}
-              height={35}
-              alt=""
-            />
+            <Link href={"/profile/" + email}>
+              <img
+                className="rounded-full cursor-pointer"
+                src={image}
+                width={35}
+                height={35}
+                alt=""
+              />
+            </Link>
             <div>
               <p className="font-medium">{name}</p>
               <p className="text-xs text-gray-400">
