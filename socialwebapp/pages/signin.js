@@ -25,7 +25,8 @@ export default function SignIn({ providers, session }) {
             <h1
               onClick={() =>
                 signIn(provider.id, {
-                  callbackUrl: "http://localhost:3000/loading",
+                  callbackUrl:
+                    "https://social-media-web-app-i9hatnx8o-aneesimran.vercel.app/loading",
                 })
               }
               className="p-5 bg-green-600 rounded-full text-white 
