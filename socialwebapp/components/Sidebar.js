@@ -24,7 +24,7 @@ function Sidebar({ currentPage }) {
                   <SidebarIcon Icon={ChatAlt2Icon} />
                 </a>
               </Link>
-              <Link href="/">
+              <Link href="/profile">
                 <a>
                   <SidebarIcon Icon={UserCircleIcon} />
                 </a>
@@ -44,7 +44,7 @@ function Sidebar({ currentPage }) {
                   <SidebarIcon active Icon={ChatAlt2Icon} />
                 </a>
               </Link>
-              <Link href="/">
+              <Link href="/profile">
                 <a>
                   <SidebarIcon Icon={UserCircleIcon} />
                 </a>
@@ -64,7 +64,7 @@ function Sidebar({ currentPage }) {
                   <SidebarIcon Icon={ChatAlt2Icon} />
                 </a>
               </Link>
-              <Link href="/">
+              <Link href="/profile">
                 <a>
                   <SidebarIcon active Icon={UserCircleIcon} />
                 </a>
