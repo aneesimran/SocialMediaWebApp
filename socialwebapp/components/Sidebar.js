@@ -102,12 +102,14 @@ function Sidebar({ currentPage }) {
                 />
                 <h2 className="text-xl p-2">{session.user.name}</h2>
               </div>
-              <h4
-                className="pb-4 mt-3 pt-4 border w-full rounded-t-none hover:bg-gray-100
+              <Link href="/profile">
+                <h4
+                  className="pb-4 mt-3 pt-4 border w-full rounded-t-none hover:bg-gray-100
        hover:text-purple-500 rounded-xl cursor-pointer shadow-md bg-white"
-              >
-                My Profile
-              </h4>
+                >
+                  My Profile
+                </h4>
+              </Link>
             </div>
           );
         }
